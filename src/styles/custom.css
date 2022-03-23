@@ -1,0 +1,60 @@
+/**
+ * Custom cross-browser styles for keyboard :focus overrides defaults.
+ */
+ *:focus {
+    outline: 0 !important;
+    box-shadow:
+      0 0 0 .2rem #fff,
+      0 0 0 .35rem #069 !important;
+  }
+
+  /**
+   * Remove focus styles for non-keyboard :focus.
+   */
+
+   .accordion-button:not(.collapsed) {
+     background: #343A40;
+   }
+
+   .accordion-button:not(.collapsed)::after {
+      background-image: none;
+      content: '﹀';
+      color: dark;
+      font-size: 1rem;
+      line-height: 20px;
+    }
+
+   .accordion-button::after {
+      background-image: none;
+      content: '﹀';
+      color: white;
+      font-size: 1rem;
+      line-height: 20px;
+   }
+
+  *:focus:not(.focus-visible) {
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  padding: 0 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #007bff;
+}
