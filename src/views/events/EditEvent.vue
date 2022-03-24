@@ -7,7 +7,7 @@
 
                 <h4>Event Information</h4>
 
-                <router-link to="student">
+                <router-link to="/event">
                     <button class="btn btn-outline-primary mb-3 mt-3"><i class="fa fa-chevron-left mx-2" aria-hidden="true"></i> Back to Event List</button>
                 </router-link>
 
@@ -185,11 +185,8 @@ export default {
                 organizer: '',
                 endDate: '',
                 startTime: '',
-                endTime: '',
-                 
+                endTime: '', 
                 eventType: '',
-                 
-                
                 addressLine1: '',
                 addressLine2: '',
                 description: '',
@@ -203,11 +200,11 @@ methods: {
 
      getData(){
 
-             this.$http.get('http://localhost:8000/api/students/edit/'+this.$route.params.id)
+             this.$http.get('http://localhost:8000/api/events/edit/'+this.$route.params.id)
 
              .then(function (Response){
 
-               this.items =Response.body.students;
+               this.items =Response.body.events;
 
              })
         },
@@ -227,25 +224,22 @@ methods: {
                 return;
             } else {
 
-                const student = {
-                    'eventName':this.items.eventName,
-                     
+                const event = {
+                    'eventName':this.items.eventName, 
                     'cheifGest':this.items.cheifGest,
                     'startDate':this.items.startDate,
                     'organizer':this.items.organizer,
                     'endDate':this.items.endDate,
                     'startTime':this.items.startTime,
-                    'endTime':this.items.endTime,
-                     
+                    'endTime':this.items.endTime,     
                     'eventType':this.items.eventType,
-                     
                     'addressLine1':this.items.addressLine1,
                     'addressLine2':this.items.addressLine2,
                     'description':this.items.description,
                     
                 }
 
-                this.$http.post('http://localhost:8000/api/students/add', student).then(function (response) { 
+                this.$http.post('http://localhost:8000/api/events/add', event).then(function (response) { 
                     console.log(response);
                 });
                 swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success"); 

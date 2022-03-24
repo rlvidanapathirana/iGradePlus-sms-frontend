@@ -16,7 +16,7 @@ import SideBar from '../components/SideBar.vue';
 import DashContent from './DashContent.vue';
 
 export default {
-    components: {
+    components: { 
         'topbar':TopBar,
         'sidebar':SideBar,
         'dash-content':DashContent

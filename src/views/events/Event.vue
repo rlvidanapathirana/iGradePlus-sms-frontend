@@ -4,8 +4,8 @@
             <div class="card-body">
                 <h4> Event List </h4>
 
-                <router-link to="add-student">
-                    <button class="btn btn-primary mt-3"><i class="fa fa-plus mx-2" aria-hidden="true"></i> Add new Student</button>
+                <router-link to="/add-event">
+                    <button class="btn btn-primary mt-3"><i class="fa fa-plus mx-2" aria-hidden="true"></i> Add new Event</button>
                 </router-link>
 
                 <div class="mt-3">
@@ -21,31 +21,33 @@
                         <thead>
                             <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Address Line1</th>
-                            <th scope="col">Address Line2</th>
-                            <th scope="col">City</th>
-                            <th scope="col">Join Date</th>
-                            <th scope="col">Mobile Number</th>
+                            <th scope="col">Event Name</th>
+                            <th scope="col">Event Type</th>
+                            <th scope="col">Organizer</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Start Time</th>
+                            <th scope="col">End Time</th>
                             <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(student, index) in filterStudents" :key="index">
-                                <th scope="row">{{student.id}}</th>
-                                <td>{{student.nameFull}}</td>
-                                <td>{{student.addressL1}}</td>
-                                <td>{{student.addressL2}}</td>
-                                <td>{{student.city}}</td>
-                                <td>{{student.joinDate}}</td>
-                                <td>{{student.mNumber}}</td>
+                            <tr v-for="(event, index) in filterEvents" :key="index">
+                                <th scope="row">{{event.id}}</th>
+                                <td>{{event.eventName}}</td>
+                                <td>{{event.eventType}}</td>
+                                <td>{{event.organizer}}</td>
+                                <td>{{event.startDate}}</td>
+                                <td>{{event.endDate}}</td>
+                                <td>{{event.startTime}}</td>
+                                <td>{{event.endTime}}</td>
                                 <td>
 
-                                    <router-link :to="'/Edit-Student/'+student.id">
+                                    <router-link :to="'/Edit-Event/:id'+event.id">
                                     <button class="btn my-0 py-0"><i class="fas fa-edit"/></button>
                                     </router-link>
 
-                                    <button class="btn my-0 py-0" @click="deleteItem(student)"><i class="fa fa-trash"/></button>
+                                    <button class="btn my-0 py-0" @click="deleteItem(event)"><i class="fa fa-trash"/></button>
                                 </td>
                             </tr>
                         </tbody>
@@ -60,22 +62,22 @@
 export default {
     data() {
         return {
-            allStudents: [],
+            allEvents: [],
             search: ''
         }
     },
     created() {
-        this.$http.get('http://localhost:8000/api/getallstudents')
+        this.$http.get('http://localhost:8000/api/getallevents')
         .then(function (response) {
             console.log(response);
-            this.allStudents = response.body.Students;
+            this.allEvents = response.body.events;
         });
     },
 
     //Delete
     methods: {
-        deleteItem(student) {
-            console.log(student);
+        deleteItem(event) {
+            console.log(event);
             swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this record!",
@@ -85,12 +87,12 @@ export default {
             })
             .then((willDelete) => {
             if (willDelete) {
-                this.$http.delete("http://localhost:8000/api/student/delete/" + student.id).then(
+                this.$http.delete("http://localhost:8000/api/event/delete/" + event.id).then(
                     function(response) {
                         console.log(response);
                     }
                 );
-                swal(student.id + " Data successfully deleted !", {
+                swal(event.id + " Data successfully deleted !", {
                 icon: "success",
                 });
             }
@@ -100,9 +102,9 @@ export default {
 
 //Search
     computed: {
-        filterStudents: function() {
-            return this.allStudents.filter((item)=> {
-                return item.nameFull.match(this.search) || item.addressL1.match(this.search) || item.addressL2.match(this.search) || item.city.match(this.search) || item.joinDate.match(this.search) || item.joinDate.match(this.search) || item.mNumber.match(this.search) ;
+        filterEvents: function() {
+            return this.allEvents.filter((item)=> {
+                return item.eventName.match(this.search) || item.eventType.match(this.search) || item.organizer.match(this.search) || item.startDate.match(this.search) || item.endDate.match(this.search) || item.startTime.match(this.search) || item.endTime.match(this.search) ;
             })
         },
     }
