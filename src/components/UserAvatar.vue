@@ -2,8 +2,8 @@
   <div>
     <div class="row py-3 text2" >
       <div class="col-10 py-3 "><br>
-        <p style="font-size: 14px; line-height: 0px; margin-left:470px;"><b>xxxxxxxxxxxxxx</b></p>
-        <p style="font-size: 10px; line-height: 0px; margin-left:470px; ">Admin</p>
+        <p style="font-size: 14px; line-height: 0px; margin-left:340px;"><b>xxxxxxxxxxxxxx</b></p>
+        <p style="font-size: 10px; line-height: 0px; margin-left:340px; ">Admin</p>
       </div>
       <div class="col-2">
         <img
@@ -25,7 +25,7 @@ export default {};
     width: 40px;
     height: 40px;
     margin-top:22px;
-    margin-left: 300px;
+    margin-left:220px;
 }
  
 

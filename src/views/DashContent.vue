@@ -1,6 +1,6 @@
 <template>
-    <div class="col-10 p-0" style="z-index: 2000" >
-       <nav class="navbar navbar-expand-md navbar-light bg-white text-dark navsty shadow" style="height:60px; width:1170px;margin-left:47px;top:20px;">
+    <div class="col-10 p-0" style="z-index: 2000"  >
+       <nav class="navbar navbar-expand-md navbar-light bg-white text-dark navsty shadow" style="height:60px; width:1044px;margin-left:47px;top:20px;">
 
                 <div class="col-md-4" style="margin-left:460px;">
                       <userAvatar />
