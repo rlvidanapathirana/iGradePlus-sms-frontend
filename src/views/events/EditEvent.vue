@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-body">
 
-                <h4>Event Information</h4>
+                <h4>Edit Event Information</h4>
 
                 <router-link to="/event">
                     <button class="btn btn-outline-primary mb-3 mt-3"><i class="fa fa-chevron-left mx-2" aria-hidden="true"></i> Back to Event List</button>
@@ -200,11 +200,19 @@ methods: {
 
      getData(){
 
-             this.$http.get('http://localhost:8000/api/events/edit/'+this.$route.params.id)
+             this.$http.get('http://localhost:8090/api/events/find/'+this.$route.params.id,
+             
+                {
+                     headers: {
+                     token:
+                         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2QzZmI2NTc1ZjgwYmMwN2Q4YjY1MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODIwNjIwOCwiZXhwIjoxNjQ4NjM4MjA4fQ.P2-cQGCJEbmIVM_YH8zJ_6LR_vw4cU6IE1uoVTJ1oFc"
+                 }})
 
              .then(function (Response){
+                console.log(Response)
 
-               this.items =Response.body.events;
+
+               this.items =Response.body;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
              })
         },
@@ -228,7 +236,7 @@ methods: {
                     'eventName':this.items.eventName, 
                     'cheifGest':this.items.cheifGest,
                     'startDate':this.items.startDate,
-                    'organizer':this.items.organizer,
+                    'organizer':this.items.organizer,                                                                                                                                                                                                                                                                                                                                                     
                     'endDate':this.items.endDate,
                     'startTime':this.items.startTime,
                     'endTime':this.items.endTime,     
@@ -242,7 +250,8 @@ methods: {
                 this.$http.post('http://localhost:8000/api/events/add', event).then(function (response) { 
                     console.log(response);
                 });
-                swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success"); 
+                swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success");
+                // this.$router.push({ path: '/employees' }) 
             }
 
         }
