@@ -7,7 +7,7 @@
 
                 <h4>Event Information</h4>
 
-                <router-link to="student">
+                <router-link to="/event">
                     <button class="btn btn-outline-primary mb-3 mt-3"><i class="fa fa-chevron-left mx-2" aria-hidden="true"></i> Back to Event List</button>
                 </router-link>
 

@@ -1,5 +1,5 @@
 <template>
-    <fullscreen ref="fullscreen" @change="fullscreenChange">
+    <fullscreen ref="fullscreen">
     <div class="h-100">
         <!-- <topbar/> -->
         <div class="d-flex dashboad p-0 bg-light">
@@ -16,7 +16,7 @@ import SideBar from '../components/SideBar.vue';
 import DashContent from './DashContent.vue';
 
 export default {
-    components: {
+    components: { 
         'topbar':TopBar,
         'sidebar':SideBar,
         'dash-content':DashContent
