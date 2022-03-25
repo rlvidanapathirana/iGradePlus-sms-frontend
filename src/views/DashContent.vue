@@ -1,6 +1,7 @@
 <template>
     <div class="col-10 p-0" style="z-index: 2000"  >
-       <nav class="navbar navbar-expand-md navbar-light bg-white text-dark navsty shadow" style="height:60px; width:1044px;margin-left:47px;top:20px;">
+      <center>
+       <nav class="navbar navbar-expand-md navbar-light bg-white text-dark navsty shadow" style="height:60px; width:1044px;top:20px;">
          
                 <div class="col-md-4" style="margin-left:460px;">
                       <userAvatar />
@@ -18,6 +19,7 @@
                 </div>
             
         </nav>
+        </center>
         <div class="p-5 dash-content overflow-auto" style="z-index: 100">
             <router-view/>
         </div>
@@ -59,8 +61,6 @@
 }
 .navsty {
   border-radius:20px;
-  margin-left:20px;
-  margin-top:-10px;
   z-index: 2000;
 }
 </style>
