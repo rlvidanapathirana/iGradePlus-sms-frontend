@@ -25,7 +25,7 @@ export default {};
     width: 40px;
     height: 40px;
     margin-top:22px;
-    margin-left:220px;
+    margin-left:170px;
 }
  
 

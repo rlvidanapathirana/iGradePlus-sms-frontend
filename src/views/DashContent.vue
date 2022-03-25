@@ -1,9 +1,9 @@
 <template>
     <div class="col-10 p-0" style="z-index: 2000"  >
-      <center>
-       <nav class="navbar navbar-expand-md navbar-light bg-white text-dark navsty shadow" style="height:60px; width:1044px;top:20px;">
-         
-                <div class="col-md-4" style="margin-left:460px;">
+      
+       <nav class="navbar navbar-expand-md navbar-light bg-white text-dark navsty shadow" style="height:60px;top:10px;">
+            <div class="container-fluid">
+                  <div class="col-md-4 img1 ">
                       <userAvatar />
                     </div>
                 
@@ -17,9 +17,9 @@
                      
                     <router-link to="/about"><button class="btn btn-white text-dark"><i class="fas fa-circle-user"></i></button></router-link>
                 </div>
-            
+              </div>
         </nav>
-        </center>
+        
         <div class="p-5 dash-content overflow-auto" style="z-index: 100">
             <router-view/>
         </div>
@@ -62,5 +62,10 @@
 .navsty {
   border-radius:20px;
   z-index: 2000;
+  margin-left:2%;
+  margin-right:2%;
+}
+.img1 {
+   
 }
 </style>

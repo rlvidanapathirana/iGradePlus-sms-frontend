@@ -180,11 +180,8 @@ export default {
                 organizer: '',
                 endDate: '',
                 startTime: '',
-                endTime: '',
-                 
+                endTime: '', 
                 eventType: '',
-                 
-                
                 addressLine1: '',
                 addressLine2: '',
                 description: '',
@@ -211,7 +208,7 @@ methods: {
                 return;
             } else {
 
-                const student = {
+                const event = {
                     'eventName':this.items.eventName,
                      
                     'cheifGest':this.items.cheifGest,
@@ -220,16 +217,21 @@ methods: {
                     'endDate':this.items.endDate,
                     'startTime':this.items.startTime,
                     'endTime':this.items.endTime,
-                     
-                    'eventType':this.items.eventType,
-                     
+                    'eventType':this.items.eventType,  
                     'addressLine1':this.items.addressLine1,
                     'addressLine2':this.items.addressLine2,
                     'description':this.items.description,
                     
                 }
+                console.log(event);
 
-                this.$http.post('http://localhost:8000/api/students/add', student).then(function (response) { 
+               this.$http.post('http://localhost:8090/api/events/', event,
+               {
+                    headers: {
+                    token:
+                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2QzZmI2NTc1ZjgwYmMwN2Q4YjY1MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODIwNjIwOCwiZXhwIjoxNjQ4NjM4MjA4fQ.P2-cQGCJEbmIVM_YH8zJ_6LR_vw4cU6IE1uoVTJ1oFc"
+                }}
+                ).then(function (response) { 
                     console.log(response);
                 });
                 swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success"); 
@@ -267,16 +269,16 @@ methods: {
             },
             startTime: {
                 required,
-                numeric,
-                minLength: minLength(10),
-                maxLength: maxLength(10)
+                // numeric,
+                // minLength: minLength(10),
+                // maxLength: maxLength(10)
             },
 
              endTime: {
                 required,
-                numeric,
-                minLength: minLength(10),
-                maxLength: maxLength(10)
+                // numeric,
+                // minLength: minLength(10),
+                // maxLength: maxLength(10)
             },
 
              

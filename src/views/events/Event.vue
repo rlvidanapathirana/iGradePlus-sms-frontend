@@ -33,7 +33,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(event, index) in filterEvents" :key="index">
-                                <th scope="row">{{event.id}}</th>
+                                <th scope="row">{{event._id}}</th>
                                 <td>{{event.eventName}}</td>
                                 <td>{{event.eventType}}</td>
                                 <td>{{event.organizer}}</td>
@@ -67,10 +67,10 @@ export default {
         }
     },
     created() {
-        this.$http.get('http://localhost:8000/api/getallevents')
+        this.$http.get('http://localhost:8090/api/events')
         .then(function (response) {
             console.log(response);
-            this.allEvents = response.body.events;
+            this.allEvents = response.body;
         });
     },
 
@@ -87,12 +87,12 @@ export default {
             })
             .then((willDelete) => {
             if (willDelete) {
-                this.$http.delete("http://localhost:8000/api/event/delete/" + event.id).then(
+                this.$http.delete("http://localhost:8090/api/events/" + event._id).then(
                     function(response) {
                         console.log(response);
                     }
                 );
-                swal(event.id + " Data successfully deleted !", {
+                swal(event._id + " Data successfully deleted !", {
                 icon: "success",
                 });
             }
