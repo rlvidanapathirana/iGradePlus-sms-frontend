@@ -235,6 +235,8 @@ methods: {
                     console.log(response);
                 });
                 swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success"); 
+                this.$router.push({ path: '/event' })
+                this.$router.push({ path: '/event' })
             }
 
         }
