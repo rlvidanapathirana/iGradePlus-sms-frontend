@@ -5,7 +5,7 @@
             <div class="card-body">
 
 
-                 <router-link to="employees">
+                 <router-link to="staff">
                     <button class="btn btn-outline-primary mb-3 mt-3"><i class="fa fa-chevron-left mx-2" aria-hidden="true"></i> Back</button>
                 </router-link>
 
@@ -225,7 +225,7 @@
 
                             <div class="my-5 d-flex flex-row-reverse bd-highlight">
 
-                                 <!-- <router-link to="employees"> -->
+                                 <!-- <router-link to="staff"> -->
                                 <button type="submit" class="btn btn-secondary btn-dark">SUBMIT</button>
                                <!-- //  </router-link> -->
 
@@ -280,45 +280,7 @@ export default {
         validationStatus: function(validation) {
             return typeof validation != "undefined" ? validation.$error: false;
         },
-        submitForm() {
-            this.$v.$touch();
-            if(this.$v.items.$pendding || this.$v.items.$error) {
-                swal("Rejected","Fill all the required fields correctly !", "error", {
-                    button: "Got It!"
-                });
-                // ssreturn;
-            }
-            else {
-                const employees ={
-                'nameInitial':this.items.nameInitial,
-                'fullName':this.items.fullName ,
-                'address1' :this.items.address1 ,
-                'address2' :this.items.address2,
-                'city' :this.items.city,
-                'date' :this.items.date,
-                'Mnumber' :this.items.Mnumber,
-                'Lnumber' :this.items.Lnumber,
-                'email' :this.items.email,
-                'gender' :this.items.gender,
-                'dob' :this.items.dob,
-                'nic':this.items.nic,
-                'jobtype':this.items.jobtype,
-                'special':this.items.special,
-                'Gname':this.items.Gname,
-                'GardianType':this.items.GardianType,
-                'add3':this.items.add3,
-                'add4':this.items.add4,
-                'city2':this.items.city2,
-                'Mnumber2':this.items.Mnumber2,
-                }
 
-                this.$http.post('http://localhost:8000/api/employees/add', employees).then(function (response) {
-                    console.log(response);
-                    });
-                swal("Success", "Completed !", "success");
-                this.$router.push({ path: '/employees' })
-            }
-        }
 
 
      },
