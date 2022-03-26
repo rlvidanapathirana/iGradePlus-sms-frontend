@@ -33,7 +33,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(event, index) in filterEvents" :key="index">
-                                <th scope="row">{{event.id}}</th>
+                                <th scope="row">{{event._id}}</th>
                                 <td>{{event.eventName}}</td>
                                 <td>{{event.eventType}}</td>
                                 <td>{{event.organizer}}</td>
@@ -43,7 +43,7 @@
                                 <td>{{event.endTime}}</td>
                                 <td>
 
-                                    <router-link :to="'/Edit-Event/:id'+event.id">
+                                    <router-link :to="'/Edit-Event/:id'+event._id">
                                     <button class="btn my-0 py-0"><i class="fas fa-edit"/></button>
                                     </router-link>
 
@@ -67,10 +67,10 @@ export default {
         }
     },
     created() {
-        this.$http.get('http://localhost:8000/api/getallevents')
+        this.$http.get('http://localhost:8090/api/events')
         .then(function (response) {
             console.log(response);
-            this.allEvents = response.body.events;
+            this.allEvents = response.body;
         });
     },
 
@@ -87,12 +87,18 @@ export default {
             })
             .then((willDelete) => {
             if (willDelete) {
-                this.$http.delete("http://localhost:8000/api/event/delete/" + event.id).then(
+                this.$http.delete("http://localhost:8090/api/events/" + event._id,
+                {
+                     headers: {
+                     token:
+                         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2QzZmI2NTc1ZjgwYmMwN2Q4YjY1MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODIwNjIwOCwiZXhwIjoxNjQ4NjM4MjA4fQ.P2-cQGCJEbmIVM_YH8zJ_6LR_vw4cU6IE1uoVTJ1oFc"
+                 }}
+                ).then(
                     function(response) {
                         console.log(response);
                     }
                 );
-                swal(event.id + " Data successfully deleted !", {
+                swal(event._id + " Data successfully deleted !", {
                 icon: "success",
                 });
             }
