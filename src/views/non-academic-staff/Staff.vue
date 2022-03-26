@@ -4,8 +4,8 @@
             <div class="card-body">
                 <h4>All Non Academic Staff</h4>
 
-                <router-link to="add-employee">
-                    <button class="btn btn-primary mt-3"><i class="fa fa-plus mx-2" aria-hidden="true"></i> Add new employee</button>
+                <router-link to="add-staff">
+                    <button class="btn btn-primary mt-3"><i class="fa fa-plus mx-2" aria-hidden="true"></i> Add Non Academic Staf</button>
                 </router-link>
 
 
@@ -46,7 +46,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(staff, index) in filterStaff" :key="index">
-                                <th scope="row">{{staff.id}}</th>
+                                <th scope="row">{{staff._id}}</th>
                                 <td>{{staff.nameInitial}}</td>
                                 <!-- <td>{{staff.fullName}}</td> -->
                                 <td>{{staff.address1}}</td>
@@ -81,18 +81,23 @@
     export default{
         data(){
             return {
+
                  allStaff:[],
                  search: ''
             }
          },
+
+
         created(){
-              this.$http.get('http://localhost:8000/api/').then
+              this.$http.get('http://localhost:8090/api/staff').then
               (function(response){
 
                 console.log(response);
-                this.allStaff = response.body.staff;
+                this.allStaff = response.body;
+
                 });
         },
+
         methods:{
             deleteItem(staff) {
                 console.log(staff);
@@ -105,19 +110,28 @@
                 })
                 .then((willDelete) => {
                 if (willDelete) {
-                    this.$http.delete("http://localhost:8000/api/" + staff.id).then(
+                    this.$http.delete("http://localhost:8090/api/staff/" + staff._id,
+                    //Tocken
+                    {
+                     headers: {
+                     token:
+                         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2QzZmI2NTc1ZjgwYmMwN2Q4YjY1MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODIwNjIwOCwiZXhwIjoxNjQ4NjM4MjA4fQ.P2-cQGCJEbmIVM_YH8zJ_6LR_vw4cU6IE1uoVTJ1oFc"
+                 }}
+
+                 ).then(
                         function(response) {
 
                             console.log(response);
                         }
                     );
-                    swal(staff.id + " Employee successfully deleted !", {
+                    swal(staff._id + " Employee successfully deleted !", {
                     icon: "success",
                     });
                 }
                 });
             }
             },
+
 
         //Search
             computed: {
@@ -135,7 +149,9 @@
     }
 
 
+
 </script>
 
 <style scoped>
+
 </style>
