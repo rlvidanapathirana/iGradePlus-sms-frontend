@@ -79,13 +79,13 @@
                         <div class="row my-3">
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Mobile Number</label>
-                                <input type="text" class="form-control"  v-model.trim="$v.items.Mnumber.$model" :class="{'is-invalid': validationStatus($v.items.Mnumber)}"  placeholder=" " aria-label="First name">
+                                <input type="number" class="form-control"  v-model.trim="$v.items.Mnumber.$model" :class="{'is-invalid': validationStatus($v.items.Mnumber)}"  placeholder=" " aria-label="First name">
                                 <div v-if="!$v.items.Mnumber.required" class="text-danger"><small>  Text is required.</small></div>
                             </div>
 
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Land Number</label>
-                                <input type="text" class="form-control"   v-model.trim="$v.items.Lnumber.$model" :class="{'is-invalid': validationStatus($v.items.Lnumber)}" placeholder=" " aria-label="Last name">
+                                <input type="number" class="form-control"   v-model.trim="$v.items.Lnumber.$model" :class="{'is-invalid': validationStatus($v.items.Lnumber)}" placeholder=" " aria-label="Last name">
                                  <div v-if="!$v.items.Lnumber.required" class="text-danger"><small>  Text is required.</small></div>
 
                             </div>
@@ -98,7 +98,7 @@
                         <div class="row my-3">
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">E mail</label>
-                                <input type="text" class="form-control"   v-model.trim="$v.items.email.$model" :class="{'is-invalid': validationStatus($v.items.email)}"   placeholder=" " aria-label="First name">
+                                <input type="email" class="form-control"   v-model.trim="$v.items.email.$model" :class="{'is-invalid': validationStatus($v.items.email)}"   placeholder=" " aria-label="First name">
                                 <div v-if="!$v.items.email.required" class="text-danger"><small>  Text is required.</small></div>
 
                             </div>
@@ -209,7 +209,7 @@
                             </div>
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Mobile Number</label>
-                                <input type="text" class="form-control" v-model.trim="$v.items.Mnumber2.$model" :class="{'is-invalid': validationStatus($v.items.Mnumber2)}"    placeholder=" " aria-label="Last name">
+                                <input type="number" class="form-control" v-model.trim="$v.items.Mnumber2.$model" :class="{'is-invalid': validationStatus($v.items.Mnumber2)}"    placeholder=" " aria-label="Last name">
                                  <div v-if="!$v.items.Mnumber2.required" class="text-danger"><small>  Text is required.</small></div>
 
                             </div>
@@ -280,7 +280,55 @@ export default {
         validationStatus: function(validation) {
             return typeof validation != "undefined" ? validation.$error: false;
         },
+        submitForm() {
+            this.$v.$touch();
+            if(this.$v.items.$pendding || this.$v.items.$error) {
+                swal("Rejected","Fill all the required fields correctly !", "error", {
+                    button: "Got It!"
+                });
+                // ssreturn;
+            }
+            else {
+                const staff ={
+                'nameInitial':this.items.nameInitial,
+                'fullName':this.items.fullName ,
+                'address1' :this.items.address1 ,
+                'address2' :this.items.address2,
+                'city' :this.items.city,
+                'date' :this.items.date,
+                'Mnumber' :this.items.Mnumber,
+                'Lnumber' :this.items.Lnumber,
+                'email' :this.items.email,
+                'gender' :this.items.gender,
+                'dob' :this.items.dob,
+                'nic':this.items.nic,
+                'jobtype':this.items.jobtype,
+                'special':this.items.special,
+                'Gname':this.items.Gname,
+                'GardianType':this.items.GardianType,
+                'add3':this.items.add3,
+                'add4':this.items.add4,
+                'city2':this.items.city2,
+                'Mnumber2':this.items.Mnumber2,
+                }
 
+                this.$http.post('http://localhost:8090/api/staff', staff,
+                 //Tocken
+                    {
+                     headers: {
+                     token:
+                         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2QzZmI2NTc1ZjgwYmMwN2Q4YjY1MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODIwNjIwOCwiZXhwIjoxNjQ4NjM4MjA4fQ.P2-cQGCJEbmIVM_YH8zJ_6LR_vw4cU6IE1uoVTJ1oFc"
+                 }}
+
+
+                ).then(function (response) {
+                    console.log(response);
+                    });
+                swal("Success", "Completed !", "success");
+                this.$router.push({ path: '/staff' })
+                this.$router.push({ path: '/staff' })
+            }
+        }
 
 
      },
