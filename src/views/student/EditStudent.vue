@@ -1,7 +1,7 @@
 <template>
 <div>
-         
-   
+
+
         <div class="card">
             <div class="card-body">
 
@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-auto">
                                 <label for="stuID" class="col-form-label">Student ID</label>
-                            </div>   
+                            </div>
                     </div>
 
                     <div>
@@ -26,7 +26,7 @@
                         <label for="formGroupExampleInput" class="form-label">Name with initial</label>
                         <input type="text" v-model.trim="$v.items.nameInitil.$model" class="form-control" :class="{'is-invalid': validationStatus($v.items.nameInitil)}" id="formGroupExampleInput" placeholder=" ">
                         <div v-if="!$v.items.nameInitil.required" class="text-danger"><small>Name with initial is required*</small></div>
-               
+
                         </div>
                         <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label">Full Name</label>
@@ -76,7 +76,7 @@
                                 <label for="formGroupExampleInput" class="form-label">Mobile Number</label>
                                 <input type="text"  v-model.trim="$v.items.mNumber.$model" class="form-control" :class="{'is-invalid': validationStatus($v.items.mNumber)}" placeholder=" " aria-label="First name">
                                 <div v-if="!$v.items.mNumber.required" class="text-danger"><small>Mobile is required*</small></div>
-                                
+
                             </div>
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Land Number</label>
@@ -96,20 +96,20 @@
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Gender</label>
                                 <select class="form-select" v-model.trim="$v.items.gender.$model"  aria-label="Default select example">
-                                    
+
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
-                                    <option value="xxxx">XXXX</option>                           
+                                    <option value="xxxx">XXXX</option>
                                     </select>
                                     <div v-if="!$v.items.gender.required" class="text-danger"><small>Gender is required*</small></div>
-                                    
+
                             </div>
                         </div>
                      </div>
 
 
 
-                     
+
                      <div>
                         <div class="row my-3">
                             <div class="col-auto w-50 ">
@@ -117,11 +117,11 @@
                                 <input type="date" v-model.trim="$v.items.dob.$model" class="form-control" placeholder=" " aria-label="First name">
                                 <div v-if="!$v.items.dob.required" class="text-danger"><small>DOB is required*</small></div>
                             </div>
-                           
+
                      </div>
 
 
-                    
+
 
 
                     <h4> Emergency Information </h4>
@@ -131,7 +131,7 @@
                         <label for="formGroupExampleInput" class="form-label">Gardian's name</label>
                         <input type="text" v-model.trim="$v.items.gName.$model" class="form-control" :class="{'is-invalid': validationStatus($v.items.gName)}" id="formGroupExampleInput" placeholder=" ">
                         <div v-if="!$v.items.gName.required" class="text-danger"><small>Gardian's name is required*</small></div>
-                        
+
                         </div>
                         <div class="mb-3">
                             <label for="formGroupExampleInput2" class="form-label">Gardian's Type</label>
@@ -139,8 +139,8 @@
                                         <option value="1">Parent</option>
                                         <option value="2">Brothers</option>
                                         <option value="3">others</option>
-                                        </select>  
-                        <div v-if="!$v.items.gType.required" class="text-danger"><small>Gardian's Type is required*</small></div>                          
+                                        </select>
+                        <div v-if="!$v.items.gType.required" class="text-danger"><small>Gardian's Type is required*</small></div>
                         </div>
                     </div>
 
@@ -177,20 +177,20 @@
                         </div>
                      </div>
 
-                     
+
 
                      <div class="my-5 d-flex flex-row-reverse bd-highlight">
                          <button  type="button" @click="clear()" class="btn btn-outline-secondary">Clear</button>
                          <button  type="submit" class="btn btn-primary btn-dark">Update</button>
-                     </div>   
-                         
-                         
+                     </div>
 
-         
+
+
+
              </div>
 
              </form>
-              
+
         </div>
 
 
@@ -198,14 +198,14 @@
     </div>
 
 
-       
+
 </div>
 </template>
 
 
 <script>
 
-import { email, required, minLength, maxLength, numeric } from 'vuelidate/lib/validators' //Import Validator 
+import { email, required, minLength, maxLength, numeric } from 'vuelidate/lib/validators' //Import Validator
 
 export default {
 // retrive part
@@ -218,7 +218,7 @@ export default {
     name: 'addstu',
     data: function() { //data()
         return({
-            items: { 
+            items: {
                 id: '',
                 nameInitil: '',
                 nameFull: '',
@@ -237,7 +237,7 @@ export default {
                 gAddressL2: '',
                 gCity: '',
                 gMnumber: ''
-                
+
             },
         });
 
@@ -264,7 +264,7 @@ methods: {
         validationStatus: function(validation) {
             return typeof validation != "undefined" ? validation.$error: false;
         },
-        
+
         submitForm: function() {
             this.$v.$touch();
             if(this.$v.items.$pendding || this.$v.items.$error) {
@@ -296,7 +296,7 @@ methods: {
 
 
 
-                //  this.$http.put('http://localhost:8000/api/student/update/'+this.$route.params.id, student).then(function (response) { 
+                //  this.$http.put('http://localhost:8000/api/student/update/'+this.$route.params.id, student).then(function (response) {
                 //     console.log(response);
 
 
@@ -306,14 +306,14 @@ methods: {
 
 
                 });
-                swal("Update Success", "Completed !", "success"); 
+                swal("Update Success", "Completed !", "success");
             }
 
         }
 
     },
 
-    
+
 
     validations: {
         items: {
@@ -325,7 +325,7 @@ methods: {
             nameFull: {
                 required,
                 // minLength: minLength(1),
-                // maxLength: maxLength(100)            
+                // maxLength: maxLength(100)
             },
             addressL1: {
                 required,
@@ -396,7 +396,7 @@ methods: {
                 required,
                 numeric,
                 minLength: minLength(10),
-                maxLength: maxLength(10)            
+                maxLength: maxLength(10)
             }
         }
     }

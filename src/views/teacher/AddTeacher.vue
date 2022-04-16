@@ -28,7 +28,7 @@
                     </div>
 
 
-                     <div>
+                    <div>
                         <div class="row">
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Address Line1</label>
@@ -41,11 +41,11 @@
                                 <div v-if="!$v.items.addressL2.required" class="text-danger"><small>Address Line2 is required*</small></div>
                             </div>
                         </div>
-                     </div>
+                    </div>
 
 
 
-                     <div>
+                    <div>
                             <div class="row my-3">
                                     <div class="col">
                                         <label for="formGroupExampleInput" class="form-label">City</label>
@@ -71,8 +71,8 @@
                         <div class="row my-3">
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Mobile Number</label>
-                                <input type="text"  v-model.trim="$v.items.mNumber.$model" class="form-control" :class="{'is-invalid': validationStatus($v.items.mNumber)}" placeholder=" " aria-label="First name">
-                                <div v-if="!$v.items.mNumber.required" class="text-danger"><small>Mobile is required*</small></div>
+                                <input type="text"  v-model.trim="$v.items.mobilenumber.$model" class="form-control" :class="{'is-invalid': validationStatus($v.items.mobilenumber)}" placeholder=" " aria-label="First name">
+                                <div v-if="!$v.items.mobilenumber.required" class="text-danger"><small>Mobile is required*</small></div>
 
                             </div>
                             <div class="col">
@@ -80,9 +80,9 @@
                                 <input type="text" v-model.trim="$v.items.lNumber.$model" class="form-control"  :class="{'is-invalid': validationStatus($v.items.lNumber)}" placeholder=" " aria-label="Last name">
                             </div>
                         </div>
-                     </div>
+                    </div>
 
-                     <div>
+                    <div>
                         <div class="row my-3">
                             <div class="col-auto w-50 ">
                                 <label for="formGroupExampleInput" class="form-label">Teach Subject</label>
@@ -90,11 +90,11 @@
                                 <div v-if="!$v.items.tSubject.required" class="text-danger"><small>Teach Subject is required*</small></div>
                             </div>
 
-                     </div>
+                    </div>
 
                     <h4> Emergency Contact </h4>
 
-                     <div class="my-3">
+                    <div class="my-3">
                         <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">First name</label>
                         <input type="text" v-model.trim="$v.items.firstnameEMG.$model" class="form-control" :class="{'is-invalid': validationStatus($v.items.firstnameEMG)}" id="formGroupExampleInput" placeholder=" ">
@@ -112,12 +112,12 @@
                                 <div v-if="!$v.items.addressline2EMG.required" class="text-danger"><small>Address Line1 is required*</small></div>
                             </div>
                         </div>
-                     </div>
+                    </div>
 
 
 
-                     <div>
-                       <label for="formGroupExampleInput" class="form-label">Gender</label>
+                    <div>
+                      <label for="formGroupExampleInput" class="form-label">Gender</label>
                                 <select class="form-select" v-model.trim="$v.items.genderEMG.$model"  aria-label="Default select example">
 
                                     <option value="Male">Male</option>
@@ -136,24 +136,24 @@
                                 <input type="text" v-model.trim="$v.items.mobilenumberEMG.$model" class="form-control"  :class="{'is-invalid': validationStatus($v.items.mobilenumberEMG)}" placeholder=" " aria-label="Last name">
                                 <div v-if="!$v.items.mobilenumberEMG.required" class="text-danger"><small>Mobile Number is required*</small></div>
                             </div>
-                             <div class="col">
+                            <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">fixed Number</label>
                                 <input type="text" v-model.trim="$v.items.fixnumberEMG.$model" class="form-control"  :class="{'is-invalid': validationStatus($v.items.fixnumberEMG)}" placeholder=" " aria-label="Last name">
                             </div>
                         </div>
-                     </div>
+                    </div>
 
-                     <div class="my-5 d-flex flex-row-reverse bd-highlight">
-                         <button  type="button" class="btn btn-outline-secondary">Clear</button>
-                         <button  type="submit" class="btn btn-primary btn-dark">Submit</button>
-                     </div>
-
-
+                    <div class="my-5 d-flex flex-row-reverse bd-highlight">
+                        <button  type="button" class="btn btn-outline-secondary">Clear</button>
+                      <button  type="submit" class="btn btn-primary btn-dark">Submit</button>
+                    </div>
 
 
-             </div>
 
-             </form>
+
+            </div>
+
+            </form>
 
         </div>
 
@@ -181,7 +181,7 @@ export default {
                 addressL1: '',
                 addressL2: '',
                 city: '',
-                mNumber: '',
+                mobilenumber: '',
                 lNumber: '',
                 tSubject: '',
                 gender: '',
@@ -220,7 +220,7 @@ methods: {
                     'addressline2':this.items.addressL2,
                     'city':this.items.city,
                     'gender':this.items.gender,
-                    'mNumber':this.items.mNumber,
+                    'mobilenumber':this.items.mobilenumber,
                     'lNumber':this.items.lNumber,
                     'teachsubject':this.items.tSubject,
                     'firstnameEMG':this.items.firstnameEMG,
@@ -266,15 +266,13 @@ methods: {
                     // minLength: minLength(5),
                     // maxLength: maxLength(20)
             },
-
-            mNumber: {
+            mobilenumber: {
                 required,
                 numeric,
                 minLength: minLength(10),
                 maxLength: maxLength(10)
             },
-
-             lNumber: {
+            lNumber: {
                 required,
                 numeric,
                 minLength: minLength(10),
@@ -286,13 +284,12 @@ methods: {
                 minLength: minLength(10),
                 maxLength: maxLength(10)
             },
-
             gender: {
                 required,
                 // minLength: minLength(4),
                 // maxLength: maxLength(10)
             },
-             genderEMG: {
+            genderEMG: {
                 required,
                 // minLength: minLength(4),
                 // maxLength: maxLength(10)
@@ -305,13 +302,11 @@ methods: {
                 // minLength: minLength(5),
                 // maxLength: maxLength(50)
             },
-
             addressline2EMG: {
                 required,
                 // minLength: minLength(1),
                 // maxLength: maxLength(30)
             },
-
             cityEMG: {
                 required
             },
