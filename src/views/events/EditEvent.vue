@@ -238,13 +238,13 @@ methods: {
                     
                 }
 
-                this.$http.put('http://localhost:8000/api/events/'+this.$route.params.id, event).then(function (response) { 
-                    console.log(this.$route.params._id + "Tst param");
+                this.$http.put('http://localhost:8090/api/events/'+this.$route.params.id, event).then(function (response) { 
+                    console.log(this.$route.params.id + "Tst param");
                     // console.log(response);
                 });
                 swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success");
                 this.$router.push({ path: '/event' })
-                this.$router.push({ path: '/event' })
+                
             }
 
         }
