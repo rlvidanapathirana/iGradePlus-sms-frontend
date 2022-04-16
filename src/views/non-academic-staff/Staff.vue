@@ -60,7 +60,7 @@
                                 <!-- <td>{{staff.department}}</td>
                                 <td>{{staff.special}}</td> -->
                                 <td>
-                                    <router-link :to="'/Edit-Employee/'+staff.id ">
+                                    <router-link :to="'/Edit-Staff/'+staff._id ">
                                             <button class="btn my-0 py-0"><i class="fas fa-edit"/></button>
                                     </router-link>
 
@@ -111,12 +111,8 @@
                 .then((willDelete) => {
                 if (willDelete) {
                     this.$http.delete("http://localhost:8090/api/staff/" + staff._id,
-                    //Tocken
-                    {
-                     headers: {
-                     token:
-                         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2QzZmI2NTc1ZjgwYmMwN2Q4YjY1MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODIwNjIwOCwiZXhwIjoxNjQ4NjM4MjA4fQ.P2-cQGCJEbmIVM_YH8zJ_6LR_vw4cU6IE1uoVTJ1oFc"
-                 }}
+
+
 
                  ).then(
                         function(response) {

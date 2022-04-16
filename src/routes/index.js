@@ -19,13 +19,13 @@ import EditTeacher from '../views/teacher/EditTeacher'
 import Staff from '../views/non-academic-staff/Staff'
 import AddStaff from '../views/non-academic-staff/AddStaff'
 import StaffReport from '../views/non-academic-staff/Report'
-import EditStudent from '../views/student/EditStudent'
+import EditStaff from '../views/non-academic-staff/EditStaff'
 
 //Thisara
 import Student from '../views/student/Students'
 import AddStudent from '../views/student/AddStudent'
 import SReport from '../views/student/Report'
-import EditStaff from '../views/student/EditStudent'
+import EditStudent from '../views/student/EditStudent'
 
 //Asanka
 import Event from '../views/events/Event'
