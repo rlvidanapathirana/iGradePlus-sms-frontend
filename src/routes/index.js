@@ -33,10 +33,19 @@ import AddEvent from '../views/events/AddEvent'
 import EventReport from '../views/events/Report'
 import EditEvent from '../views/events/EditEvent'
 
+import Login from '../views/login/Login'
 
 
 export default new Router({
+
   routes: [
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+      meta: { auth: false }
+    },
+
     {
       path: '/admin',
       name: 'Admin Panel',
@@ -148,9 +157,6 @@ export default new Router({
           name: 'EditEvent',
           component: EditEvent
         },
-
-
-
       ]
     },
     {
@@ -159,4 +165,5 @@ export default new Router({
       component: UserHome
     }
   ]
+
 })
