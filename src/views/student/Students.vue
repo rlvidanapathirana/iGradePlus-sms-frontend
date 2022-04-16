@@ -41,7 +41,7 @@
                                 <td>{{student.mNumber}}</td>
                                 <td>
 
-                                    <router-link :to="'/Edit-Student/'+student.id">
+                                    <router-link :to="'/Edit-Student/'+student._id">
                                     <button class="btn my-0 py-0"><i class="fas fa-edit"/></button>
                                     </router-link>
 
@@ -85,13 +85,8 @@ export default {
             })
             .then((willDelete) => {
             if (willDelete) {
-                this.$http.delete("http://localhost:8000/api/student/delete/" + student.id,
-                ).then(
-                    function(response) {
-                        console.log(response);
-                    }
-                );
-                swal(student.id + " Data successfully deleted !", {
+                     this.$http.delete("http://localhost:8090/api/student/" + student._id)
+                swal(student._id + " Data successfully deleted !", {
                 icon: "success",
                 });
             }
