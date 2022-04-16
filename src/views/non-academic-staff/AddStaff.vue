@@ -79,13 +79,13 @@
                         <div class="row my-3">
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Mobile Number</label>
-                                <input type="number" class="form-control"  v-model.trim="$v.items.Mnumber.$model" :class="{'is-invalid': validationStatus($v.items.Mnumber)}"  placeholder=" " aria-label="First name">
+                                <input type="text" class="form-control"  v-model.trim="$v.items.Mnumber.$model" :class="{'is-invalid': validationStatus($v.items.Mnumber)}"  placeholder=" " aria-label="First name">
                                 <div v-if="!$v.items.Mnumber.required" class="text-danger"><small>  Text is required.</small></div>
                             </div>
 
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Land Number</label>
-                                <input type="number" class="form-control"   v-model.trim="$v.items.Lnumber.$model" :class="{'is-invalid': validationStatus($v.items.Lnumber)}" placeholder=" " aria-label="Last name">
+                                <input type="text" class="form-control"   v-model.trim="$v.items.Lnumber.$model" :class="{'is-invalid': validationStatus($v.items.Lnumber)}" placeholder=" " aria-label="Last name">
                                  <div v-if="!$v.items.Lnumber.required" class="text-danger"><small>  Text is required.</small></div>
 
                             </div>
@@ -209,7 +209,7 @@
                             </div>
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Mobile Number</label>
-                                <input type="number" class="form-control" v-model.trim="$v.items.Mnumber2.$model" :class="{'is-invalid': validationStatus($v.items.Mnumber2)}"    placeholder=" " aria-label="Last name">
+                                <input type="text" class="form-control" v-model.trim="$v.items.Mnumber2.$model" :class="{'is-invalid': validationStatus($v.items.Mnumber2)}"    placeholder=" " aria-label="Last name">
                                  <div v-if="!$v.items.Mnumber2.required" class="text-danger"><small>  Text is required.</small></div>
 
                             </div>
@@ -367,11 +367,13 @@ export default {
             Mnumber :{
                  required,
                     numeric,
+                    minLength: minLength(10),
                     maxLength: maxLength(10),
             },
              Lnumber :{
                  required,
                     numeric ,
+                    minLength: minLength(10),
                     maxLength: maxLength(10),
             },
             email :{
@@ -424,6 +426,7 @@ export default {
               Mnumber2 :{
                  required,
                     numeric,
+                    minLength: minLength(10),
                     maxLength: maxLength(10),
             }
         }
