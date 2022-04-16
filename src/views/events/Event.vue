@@ -43,7 +43,7 @@
                                 <td>{{event.endTime}}</td>
                                 <td>
 
-                                    <router-link :to="'/Edit-Event/:id'+event._id">
+                                    <router-link :to="'/Edit-Event/'+event._id">
                                     <button class="btn my-0 py-0"><i class="fas fa-edit"/></button>
                                     </router-link>
 
