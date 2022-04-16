@@ -200,19 +200,10 @@ methods: {
 
      getData(){
 
-             this.$http.get('http://localhost:8090/api/events/find/'+this.$route.params.id,
-             
-                {
-                     headers: {
-                     token:
-                         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2QzZmI2NTc1ZjgwYmMwN2Q4YjY1MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODIwNjIwOCwiZXhwIjoxNjQ4NjM4MjA4fQ.P2-cQGCJEbmIVM_YH8zJ_6LR_vw4cU6IE1uoVTJ1oFc"
-                 }})
-
+             this.$http.get('http://localhost:8090/api/events/find/'+this.$route.params.id)
              .then(function (Response){
-                console.log(Response)
-
-
-               this.items =Response.body;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+               this.items =Response.body;
+                console.log(this.items);
 
              })
         },
@@ -247,11 +238,13 @@ methods: {
                     
                 }
 
-                this.$http.post('http://localhost:8000/api/events/add', event).then(function (response) { 
-                    console.log(response);
+                this.$http.put('http://localhost:8000/api/events/'+this.$route.params.id, event).then(function (response) { 
+                    console.log(this.$route.params._id + "Tst param");
+                    // console.log(response);
                 });
                 swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success");
-                // this.$router.push({ path: '/employees' }) 
+                this.$router.push({ path: '/event' })
+                this.$router.push({ path: '/event' })
             }
 
         }
@@ -286,16 +279,16 @@ methods: {
             },
             startTime: {
                 required,
-                numeric,
-                minLength: minLength(10),
-                maxLength: maxLength(10)
+                // numeric,
+                // minLength: minLength(10),
+                // maxLength: maxLength(10)
             },
 
              endTime: {
                 required,
-                numeric,
-                minLength: minLength(10),
-                maxLength: maxLength(10)
+                // numeric,
+                // minLength: minLength(10),
+                // maxLength: maxLength(10)
             },
 
              
