@@ -60,7 +60,7 @@
                                 <!-- <td>{{staff.department}}</td>
                                 <td>{{staff.special}}</td> -->
                                 <td>
-                                    <router-link :to="'/Edit-Employee/'+staff.id ">
+                                    <router-link :to="'/Edit-Staff/'+staff._id ">
                                             <button class="btn my-0 py-0"><i class="fas fa-edit"/></button>
                                     </router-link>
 

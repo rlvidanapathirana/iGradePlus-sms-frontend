@@ -314,18 +314,14 @@ export default {
 
                 this.$http.post('http://localhost:8090/api/staff', staff,
                  //Tocken
-                    {
-                     headers: {
-                     token:
-                         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyM2QzZmI2NTc1ZjgwYmMwN2Q4YjY1MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0ODIwNjIwOCwiZXhwIjoxNjQ4NjM4MjA4fQ.P2-cQGCJEbmIVM_YH8zJ_6LR_vw4cU6IE1uoVTJ1oFc"
-                 }}
+
 
 
                 ).then(function (response) {
                     console.log(response);
                     });
                 swal("Success", "Completed !", "success");
-                this.$router.push({ path: '/staff' })
+                this.$router.push({ path: '/staff' }),
                 this.$router.push({ path: '/staff' })
             }
         }
