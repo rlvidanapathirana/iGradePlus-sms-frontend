@@ -269,7 +269,7 @@ methods: {
                     'gMnumber':this.items.gMnumber
                 }
 
-                this.$http.post('http://localhost:8000/api/students/add', student).then(function (response) { 
+                this.$http.post('http://localhost:8090/api/student', student).then(function (response) { 
                     console.log(response);
                 });
                 swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success"); 
