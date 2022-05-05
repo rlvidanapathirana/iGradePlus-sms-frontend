@@ -91,9 +91,10 @@ export default {
                         console.log(response);
                     }
                 );
-                swal(teacher._id + " Data successfully deleted !", {
+                swal(teacher.firstname + " Data successfully deleted !", {
                 icon: "success",
-                });
+                })
+                this.$router.push({ path: '/teacher' })
             }
             });
         }
