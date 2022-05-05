@@ -248,11 +248,12 @@ methods: {
         //retrieve
         getData(){
 
-             this.$http.get('http://localhost:8000/api/students/edit/'+this.$route.params.id)
+             this.$http.get('http://localhost:8090/api/student/find/'+this.$route.params.id)
 
              .then(function (Response){
+                 console.log(Response)
+               this.items =Response.body;
 
-               this.items =Response.body.students;
 
              })
         },
@@ -300,7 +301,8 @@ methods: {
                 //     console.log(response);
 
 
-                this.$http.put('http://localhost:8000/api/student/update/'+this.$route.params.id, student) .then(function (Response){
+                this.$http.put('http://localhost:8090/api/student/'+this.$route.params.id, student)
+                 .then(function (Response){
 
                   console.log(this.$route.params.id + "Tst param");
 
