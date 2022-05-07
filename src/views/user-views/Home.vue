@@ -12,17 +12,31 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
-            </li> -->
+            </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
+
+
+          <!-- <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          </form> -->
+
+          <ul class="navbar-nav mt-2 mt-md-0">
+            <li class="nav-item"> <router-link to="register">
+              <a class="nav-link" href="#">Create an account</a> </router-link>
+            </li>
+            <li class="nav-item"> <router-link to="login">
+              <a class="nav-link" href="#">Sign in</a> </router-link>
+            </li>
+           </ul>
+
+
+
         </div>
       </nav>
     </header>
