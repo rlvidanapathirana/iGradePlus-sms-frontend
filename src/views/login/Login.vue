@@ -18,8 +18,15 @@
                     <label>Password</label>
                     <input type="password" class="form-control" placeholder="Password" v-model="login.password">
                   </div>
+
+
                   <button type="submit" class="btn btn-black">Login</button>
+
+
+                  <router-link to="register">
                   <button type="submit" class="btn btn-secondary">Register</button>
+                  </router-link>
+
               </form>
             </div>
         </div>
