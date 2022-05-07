@@ -12,7 +12,7 @@
             <form @submit.prevent="handleSubmit">
               <div class="form-group">
                     <label>User Name</label>
-                    <input type="email" class="form-control" placeholder="User Name" v-model="userName">
+                    <input type="text" class="form-control" placeholder="User Name" v-model="userName">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
@@ -23,9 +23,10 @@
                     <input type="password" class="form-control" placeholder="Password" v-model="password">
                 </div>
                 <button type="submit" class="btn btn-secondary">Register</button>
+                <router-link to="login">
                 <div>
                 if you have an account and you want to <button>Login</button>
-                </div>
+                </div> </router-link>
             </form>
             </div>
         </div>
