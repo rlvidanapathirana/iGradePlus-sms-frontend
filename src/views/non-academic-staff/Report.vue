@@ -7,7 +7,6 @@
             <h5 class="card-title">Generate Non-Academic-Staff Report</h5>
             <p class="card-text"> Generate non-academic-Staff report to get an idea about school </p>
             <button type="button" @click="getReport" class="btn btn-primary"><i class="fas fa-file-download"></i><span class="mx-3">Generate Report</span></button>
-            <button type="button" class="btn btn-primary"><i class="fas fa-print"></i><span class="mx-3">Print Report</span></button>
         </div>
         <div class="card-footer text-muted">
         </div>
