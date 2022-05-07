@@ -2,54 +2,57 @@
 <div>
   <div class="sidenav">
         <div class="login-main-text">
-            <h2>Application<br> Login Page</h2>
-            <p>Login or register from here to access.</p>
+            <h2>Application<br> Register Page</h2>
+            <p>register from here to access.</p>
         </div>
       </div>
       <div class="main">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-3 col-sm-12">
             <div class="login-form">
-              <form @submit.prevent="handleSubmit">
-                  <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="text" class="form-control" placeholder="Email" v-model="login.email">
-                  </div>
-                  <div class="form-group">
+            <form @submit.prevent="handleSubmit">
+              <div class="form-group">
+                    <label>User Name</label>
+                    <input type="email" class="form-control" placeholder="User Name" v-model="userName">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="Email Address" v-model="email">
+                </div>
+                <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password" v-model="login.password">
-                  </div>
-                  <button type="submit" class="btn btn-black">Login</button>
-                  <button type="submit" class="btn btn-secondary">Register</button>
-              </form>
+                    <input type="password" class="form-control" placeholder="Password" v-model="password">
+                </div>
+                <button type="submit" class="btn btn-secondary">Register</button>
+                <div>
+                if you have an account and you want to <button>Login</button>
+                </div>
+            </form>
             </div>
         </div>
-      </div>
+    </div>
 </div>
 </template>
+
 <script>
 export default {
-    name: 'login',
+    name: 'register',
     data : function (){
         return{
-            login: {
+            userName: '',
             email: '',
             password: ''
-        }
         }
     },
     methods: {
         handleSubmit : function (){
-                //console.log(this.login);
-                this.$http.post('http://localhost:8090/api/auth/login', this.login).then(function (response) {
-                     //console.log(response);
-                    if(response.bodyText == '[]') {
-                          //alert('Error'+response.bodyText);
-                        swal("error", "THANK YOU!", "error");
-                        } else {
-                            localStorage.setItem("token",response.data.token);
-                            this.$router.push('/admin');
-                            location.reload();
-                        }
+                const user = {
+                        username:this.userName,
+                        email : this.email,
+                        password : this.password
+                }
+                console.log(user);
+                this.$http.post('http://localhost:8090/api/auth/register', user).then(function (response) {
+                      swal("User Account Created", "THANK YOU!", "success");
                 });
         }
     }
