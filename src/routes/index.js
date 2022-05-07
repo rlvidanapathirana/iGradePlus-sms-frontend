@@ -33,7 +33,9 @@ import AddEvent from '../views/events/AddEvent'
 import EventReport from '../views/events/Report'
 import EditEvent from '../views/events/EditEvent'
 
+//Authentications
 import Login from '../views/login/Login'
+import Register from '../views/register/Register'
 
 
 export default new Router({
@@ -45,6 +47,12 @@ export default new Router({
       component: Login,
       meta: { auth: false }
     },
+      {
+        path: '/register',
+        name: 'register',
+        component: Register,
+        meta: { auth: false }
+      },
 
     {
       path: '/admin',

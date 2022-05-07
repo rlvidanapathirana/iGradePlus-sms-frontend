@@ -258,11 +258,12 @@ console.log(this.items)
 
                 this.$http.put('http://localhost:8090/api/teachers/'+this.$route.params.id, teacher) .then(function (Response){
 
-                  console.log(this.$route.params._id + "Tst param");
+                console.log(this.$route.params._id + "Tst param");
 
 
                 });
                 swal("Update Success", "Completed !", "success");
+                this.$router.push({ path: '/teacher' })
             }
 
         }
