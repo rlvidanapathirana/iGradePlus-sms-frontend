@@ -39,9 +39,9 @@
                                 <label for="formGroupExampleInput" class="form-label">Event type</label>
                                 <select class="form-select" v-model.trim="$v.items.eventType.$model"  aria-label="Default select example">
                                     
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="xxxx">XXXX</option>                           
+                                    <option value="Male">music event</option>
+                                    <option value="Female">dancing event</option>
+                                    <option value="xxxx">religion event</option>                           
                                     </select>
                                     <div v-if="!$v.items.eventType.required" class="text-danger"><small>event is required*</small></div>
                                     
