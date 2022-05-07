@@ -32,8 +32,8 @@ export default {
     data : function (){
         return{
             login: {
-              email: '',
-              password: ''
+            email: '',
+            password: ''
         }
         }
     },
@@ -42,13 +42,13 @@ export default {
                 //console.log(this.login);
                 this.$http.post('http://localhost:8090/api/auth/login', this.login).then(function (response) {
                      //console.log(response);
-                      if(response.bodyText == '[]') {
+                    if(response.bodyText == '[]') {
                           //alert('Error'+response.bodyText);
-                          swal("error", "THANK YOU!", "error");
+                        swal("error", "THANK YOU!", "error");
                         } else {
-                          localStorage.setItem("token",response.data.token);
-                          this.$router.push('/admin');
-                          location.reload();
+                            localStorage.setItem("token",response.data.token);
+                            this.$router.push('/admin');
+                            location.reload();
                         }
                 });
         }
