@@ -88,6 +88,7 @@ mounted() {
             // Converting the number of millisecond
             // in date string
             var a = d.toString()
+
             doc.addImage(img, 'jpg', 5,160,200,80)
             doc.text("Teacher Report", 15, 10);
             doc.setFontSize(10);
