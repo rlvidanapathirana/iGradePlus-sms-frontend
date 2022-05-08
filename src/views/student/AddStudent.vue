@@ -74,13 +74,13 @@
                         <div class="row my-3">
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Mobile Number</label>
-                                <input type="text"  v-model.trim="$v.items.mNumber.$model" class="form-control" :class="{'is-invalid': validationStatus($v.items.mNumber)}" placeholder=" " aria-label="First name">
+                                <input type="tel"   v-model.trim="$v.items.mNumber.$model" class="form-control" :class="{'is-invalid': validationStatus($v.items.mNumber)}" placeholder=" " aria-label="First name">
                                 <div v-if="!$v.items.mNumber.required" class="text-danger"><small>Mobile is required*</small></div>
                                 
                             </div>
                             <div class="col">
                                 <label for="formGroupExampleInput" class="form-label">Land Number</label>
-                                <input type="text" v-model.trim="$v.items.lNumber.$model" class="form-control"  :class="{'is-invalid': validationStatus($v.items.lNumber)}" placeholder=" " aria-label="Last name">
+                                <input type="tel"  v-model.trim="$v.items.lNumber.$model" class="form-control"  :class="{'is-invalid': validationStatus($v.items.lNumber)}" placeholder=" " aria-label="Last name">
                             </div>
                         </div>
                      </div>
@@ -177,7 +177,7 @@
                         </div>
                      </div>
 
-                     <div class="my-5 d-flex flex-row-reverse bd-highlight">
+                     <div class="my-5 gap-3 d-flex flex-row-reverse bd-highlight">
                          <button  type="button" class="btn btn-outline-secondary">Clear</button>
                          <button  type="submit" class="btn btn-primary btn-dark">Submit</button>
                      </div>   
@@ -273,6 +273,8 @@ methods: {
                     console.log(response);
                 });
                 swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success"); 
+                 this.$router.push({ path: '/student' })
+                this.$router.push({ path: '/student' })
             }
 
         }

@@ -179,7 +179,7 @@
 
 
 
-                     <div class="my-5 d-flex flex-row-reverse bd-highlight">
+                     <div class="my-5 gap-3 d-flex flex-row-reverse bd-highlight">
                          <button  type="button" @click="clear()" class="btn btn-outline-secondary">Clear</button>
                          <button  type="submit" class="btn btn-primary btn-dark">Update</button>
                      </div>
