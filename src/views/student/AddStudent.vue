@@ -273,6 +273,8 @@ methods: {
                     console.log(response);
                 });
                 swal("YOUR MESSAGE WAS SENT SUCCESSFULLY", "THANK YOU!", "success"); 
+                 this.$router.push({ path: '/student' })
+                this.$router.push({ path: '/student' })
             }
 
         }

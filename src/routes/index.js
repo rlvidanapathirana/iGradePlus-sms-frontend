@@ -9,7 +9,7 @@ import UserHome from '../views/user-views/Home'
 
 import Home from '../views/Home'
 
-//Shashi
+//hetti
 import Teacher from '../views/teacher/Teacher'
 import AddTeacher from '../views/teacher/AddTeacher'
 import TeacherReport from '../views/teacher/Report'
@@ -21,7 +21,7 @@ import AddStaff from '../views/non-academic-staff/AddStaff'
 import StaffReport from '../views/non-academic-staff/Report'
 import EditStaff from '../views/non-academic-staff/EditStaff'
 
-//Thisara
+//shashiya
 import Student from '../views/student/Students'
 import AddStudent from '../views/student/AddStudent'
 import SReport from '../views/student/Report'
