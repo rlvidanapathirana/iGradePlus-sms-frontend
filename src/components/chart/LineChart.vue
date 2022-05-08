@@ -19,7 +19,7 @@ export default {
   },
   mounted() {
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    const dates = this.chartData.map(d => month[d._id]);
+    const dates = this.chartData.map(d => month[d._id]).reverse();
     const totals = this.chartData.map(d => d.total).sort();
 
     const {

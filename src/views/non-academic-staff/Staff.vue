@@ -46,7 +46,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(staff, index) in filterStaff" :key="index">
-                                <th scope="row">{{staff._id}}</th>
+                                <th scope="row">{{staff._id.substring(0,9)}}</th>
                                 <td>{{staff.nameInitial}}</td>
                                 <!-- <td>{{staff.fullName}}</td> -->
                                 <td>{{staff.address1}}</td>

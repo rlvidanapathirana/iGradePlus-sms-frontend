@@ -20,7 +20,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">Event ID</th>
                             <th scope="col">Event Name</th>
                             <th scope="col">Event Type</th>
                             <th scope="col">Organizer</th>
@@ -33,7 +33,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="(event, index) in filterEvents" :key="index">
-                                <th scope="row">{{event._id}}</th>
+                                <th>{{event._id.substring(0,4)}}</th>
                                 <td>{{event.eventName}}</td>
                                 <td>{{event.eventType}}</td>
                                 <td>{{event.organizer}}</td>
@@ -80,7 +80,7 @@ export default {
             console.log(event);
             swal({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this record!",
+            text: "do you want to delete record!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
