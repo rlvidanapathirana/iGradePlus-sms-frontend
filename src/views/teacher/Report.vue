@@ -82,13 +82,13 @@ mounted() {
             } );
             //console.log(this.userArray);
             var img = new Image()
-            img.src = 'https://i.ibb.co/dJ2bJ3X/5512.jpg'
+            img.src = 'https://i.ibb.co/7VLScqs/staff-report.png'
             // Use of Date.now() method
               var d = Date(Date.now());
             // Converting the number of millisecond
             // in date string
             var a = d.toString()
-            doc.addImage(img, 'jpg', 75,150,80,80)
+            doc.addImage(img, 'jpg', 5,150,200,80)
             doc.text("Teacher Report", 10, 10);
             doc.setFontSize(10);
             doc.text(a, 10, 140);
