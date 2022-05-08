@@ -88,10 +88,11 @@ mounted() {
             // Converting the number of millisecond
             // in date string
             var a = d.toString()
-            doc.addImage(img, 'jpg', 5,150,200,80)
-            doc.text("Teacher Report", 10, 10);
+
+            doc.addImage(img, 'jpg', 5,160,200,80)
+            doc.text("Teacher Report", 15, 10);
             doc.setFontSize(10);
-            doc.text(a, 10, 140);
+            doc.text(a, 10, 150);
             // Or use javascript directly using table auto :
             autoTable(doc, {
             head: [['First Name', 'Last Name', 'Address Line','City','Mobile Number','Fix Number','Subject']],

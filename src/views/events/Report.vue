@@ -82,16 +82,16 @@ mounted() {
             } );
             //console.log(this.userArray);
             var img = new Image()
-            img.src = 'https://i.ibb.co/tCQSp8z/event.jpg'
+            img.src = 'https://i.ibb.co/7VLScqs/staff-report.png'
             // Use of Date.now() method
               var d = Date(Date.now());
             // Converting the number of millisecond
             // in date string
             var a = d.toString()
-            doc.addImage(img, 'jpg', 75,100,80,80)
-            doc.text("Event Report", 10, 10);
+            doc.addImage(img, 'jpg', 5,160,200,80)
+            doc.text("Event Report", 15, 10);
             doc.setFontSize(10);
-            doc.text(a, 10, 90);
+            doc.text(a, 10, 150);
             // Or use javascript directly using table auto :
             autoTable(doc, {
             head: [['Event Name', 'cheifGest','start Date','organizer','end Date','start Time','end Time']],
